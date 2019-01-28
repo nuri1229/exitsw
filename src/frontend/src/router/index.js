@@ -10,7 +10,7 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/sample',
+      path: '/',
       name: 'Sample',
       component: Sample
     },
