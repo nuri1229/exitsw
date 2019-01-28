@@ -6,10 +6,13 @@
 <mapper namespace="com.semi.nuri.mapper.sample">
  
  <select id="selectTest" resultType="HashMap">
- 	SELECT
- 		*
- 	FROM
- 		test_table
+	SELECT 
+		SIDO, 
+		SIDO_CODE, 
+		SIGUNGU, 
+		SIGUNGU_CODE 
+	FROM 
+		KINDERGARTEN.TB_SIGUNGU
  </select>
     
 </mapper>
