@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.semi.nuri.mapper.main">
+ 
+ <select id="getSidoServiceList" resultType="HashMap">
+    select 
+        SIDO
+        , SIDO_CODE 
+    from 
+        TB_SIGUNGU 
+    group by 
+        SIDO, SIDO_CODE;
+ </select>
+     <select id="getGunGuServiceList" resultType="HashMap"  parameterType="HashMap">
+select SIGUNGU, SIGUNGU_CODE from TB_SIGUNGU where SIDO_CODE = #{sido}
+ </select>
+</mapper>

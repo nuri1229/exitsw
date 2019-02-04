@@ -58,6 +58,7 @@ public class SampleController {
 		
 		System.out.println(apiKey);
 		String apiUrl=paramMap.get("url").toString()+"&key="+apiKey;
+		logger.debug("sample api Url ======>" + apiUrl);
 		Map<String, Object> responseMap=new HashMap<String, Object>();
 
 		URL url = new URL(apiUrl);

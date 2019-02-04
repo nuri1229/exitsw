@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>{{msg}}</h1>
+      <h1>{{msg}}</h1><button><router-link to="/main">Go to Mainr</router-link></button>
       <button class="btn btn-primary" v-on:click="fn_get_api()">{{msg}}</button>
       <br>
       <b-table striped hover v-bind:items="output"></b-table>
@@ -13,7 +13,7 @@ export default {
   name: 'Sample',
   data () {
     return {
-      msg: 'Sample Page 입니다',
+      msg: 'Sample Page �엯�땲�떎222222',
       output: [],
       output2: []
     }

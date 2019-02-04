@@ -20,7 +20,6 @@ public class SampleDAOImpl implements SampleDAO{
 	public List<Map<String,Object>> test() {
 		
 		List<Map<String,Object>> list=sqlSession.selectList(NAME_SPACE+".selectTest");
-
 		return list;
 	}
 	
