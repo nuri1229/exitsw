@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Sample from '@/components/Sample'
 import Sample2 from '@/components/Sample2'
 import main from '@/components/main'
-import map from '@/components/map'
+import Map from '@/components/map'
 
 Vue.use(Router)
 
@@ -13,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Sample',
-      component: Sample
+      name: 'index',
+      component: Map
     },
     {
       path: '/sample2',
@@ -29,7 +29,12 @@ export default new Router({
     {
       path: '/map',
       name: 'map',
-      component: map
+      component: Map
+    },
+    {
+      path: '/sample',
+      name: 'Sample',
+      component: Sample
     }
   ]
 })

@@ -1,12 +1,32 @@
 <template>
-  <div>
-    <div id="mapContainer" style="width:100%;height:450px;"/><br>
-    <select v-model="sido" v-on:change="getGunguList()">
-          <option v-for="s in sidoList" v-bind:value="s.SIDO_CODE">{{s.SIDO}}</option>
-      </select>
-      <select v-model="gungu" v-on:change="getTotalList()">
-          <option v-for="s in gunguList" v-bind:value="s.SIGUNGU_CODE">{{s.SIGUNGU}}</option>
-      </select>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <select v-model="sido" v-on:change="getGunguList()" class="form-control" placeholder="시,도를 선택하세요">
+              <option v-for="s in sidoList" v-bind:value="s.SIDO_CODE">{{s.SIDO}}</option>
+          </select>
+          <select v-model="gungu" v-on:change="getTotalList()" class="form-control" placeholder="군,구를 선택하세요">
+              <option v-for="s in gunguList" v-bind:value="s.SIGUNGU_CODE">{{s.SIGUNGU}}</option>
+          </select>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <td style="text-align:right;">총 <span style="color:#3897F0;font-weight:bold">{{totalList.length}}</span>개의 유치원이 검색되었습니다</td>
+              </tr>
+            </thead>
+            <tbody>
+              <template v-for="kindergarten in totalList">
+                <tr>
+                  <td>{{kindergarten.addr}}</td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+      </div>
+      <div class="col-6">
+        <div id="mapContainer" style="width:100%;height:550px;"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -95,17 +115,15 @@ export default {
         }
         positions.push(obj)
       }
-      var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
       for (var j = 0; j < positions.length; j++) {
         var imageSize = new daum.maps.Size(24, 35);
-        var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize);
         var marker = new daum.maps.Marker({
           map: map, // 마커를 표시할 지도
           position: positions[j].latlng, // 마커를 표시할 위치
-          title: positions[j].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-          image: markerImage // 마커 이미지
+          title: positions[j].title // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         })
       }
+      console.log(this.totalList[0])
     }
   },
   mounted () {

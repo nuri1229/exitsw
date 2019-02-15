@@ -7,7 +7,7 @@
         </div>
       </div><!--top row end-->
       <div class="row justify-content-center" style="margin-top:35px;">
-        <div class="col-10">
+        <div class="col-12">
           <router-view/>
         </div>
       </div>
